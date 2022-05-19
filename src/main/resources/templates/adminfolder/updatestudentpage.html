@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>home page</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<section>
+<div class="container mt-5">
+
+
+ <div class="my-card mr-3">
+    <div class="card-body">
+  <h1 class="text-center"> Update Form</h1>
+  
+  
+  <div class="container-fluid mt-1">
+  <div class="row">
+  
+  
+  <div class="col-md-10 offset-md-1"> 
+  
+   <form th:action="@{/studentupdate/{rollNo}(rollNo=${studentlogindetails.rollNo})}"  th:object="${studentlogindetails}"  enctype="multipart/form-data" method="post"  class="mt-2">
+ 
+ <input type="hidden" th:value="${studentlogindetails.rollNo}" name="rollNo"/>
+  <!-- <label class="form-label">teacher name</label> -->
+   <div class="input-group mt-3">
+   
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+          
+             <i class="fas fa-user-alt"></i>
+           
+           </div>
+  
+  </div>
+  
+      <input th:value="${studentlogindetails.fullName}" type="text" id="fullName" name="fullName" placeholder="enter student name here" class="form-control" >
+ 
+  </div>
+  
+  
+   <div class="input-group mt-3">
+   
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+          
+             <i class="fas fa-user-alt"></i>
+           
+           </div>
+  
+  </div>
+  
+      <input th:value="${studentlogindetails.fatherName}" type="text" id="fatherName" name="fatherName" placeholder="enter student father name here" class="form-control" >
+ 
+  </div>
+  
+  
+   <div class="input-group mt-3">
+   
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+          
+             <i class="fas fa-user-alt"></i>
+           
+           </div>
+  
+  </div>
+  
+      <input th:value="${studentlogindetails.motherName}" type="text" id="motherName" name="motherName" placeholder="enter student mother name here" class="form-control" >
+ 
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  
+  
+  <input th:value="${studentlogindetails.studentAddress}" type="text" id="studentAddress" name="studentAddress" placeholder="enter student address here" class="form-control">
+  </div>
+  
+  
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  
+  
+  
+   <input th:value="${studentlogindetails.percentage}" type="text" id="percentage" name="percentage" placeholder="enter student percentage here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  <input th:value="${studentlogindetails.contactNumber}" type="text" id="contactNumber" name="contactNumber" placeholder="enter student contact number here" class="form-control">
+  </div>
+  
+ 
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input  th:value="${studentlogindetails.studentEmail}" type="email" id="studentEmail" name="studentEmail" placeholder="enter student Email here" class="form-control">
+  </div>
+  
+   <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input th:value="${studentlogindetails.Password}" type="password" id="password" name="password" placeholder="give any password to student login" class="form-control">
+  </div>
+  
+  
+  <div class="container">
+  <img style="width:150px;height:150px;" class="img-fluid my-profile"  th:src="@{'/img/'+${studentlogindetails.image}}" alt=""/>
+  </div>
+  <div class="custom-file mt-3">
+  
+  <input type="file" class="form-control-file"  id="myfile"   name="profileimage" />
+  </div>
+  
+  
+  
+  
+ <div class="container text-center">
+  <button class="btn btn-primary ">save</button>
+  </div>
+  
+  
+  </form>
+  </div>
+ </div>
+ </div>
+  </div>
+  </div>
+
+</div>
+</section>
+</body>
+</html>

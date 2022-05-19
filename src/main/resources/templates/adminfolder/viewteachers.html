@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<section>
+
+<div class="container mt-5">
+<h1 align="center">view Teachers</h1>
+<h1> <button type="submit" class="btn btn-success"><a th:href="@{/addteacher}" style="color:white;">Add Teacher</a></button></h1>
+<div th:if="${session.message02}" th:classappend="${session.message02.type}" class="alert" role="alert">
+       <p class="text-center" th:text="${session.message02.content}"></p>
+       
+       <th:block th:text="${#session.removeAttribute('message02')}"></th:block>
+     </div>
+     
+
+     <div th:if="${session.message11}" th:classappend="${session.message11.type}" class="alert" role="alert">
+       <p class="text-center" th:text="${session.message11.content}"></p>
+       
+       <th:block th:text="${#session.removeAttribute('message11')}"></th:block>
+     </div>
+  
+<div class="container mt-6">
+
+<table class="table">
+  <thead >
+    <tr>
+  
+   <th scope="col">TeacherId</th>
+     <!--  <th scope="col">Teacher Email</th> -->
+      <th scope="col">Teacher Name</th>
+      <th scope="col">Teacher contact</th>
+      <th scope="col">Teacher Role</th>
+   <th scope="col">Teacher Image</th>
+     <th scope="col">Action</th>
+     
+      
+     
+    </tr>
+   
+  </thead>
+  <tbody>
+    <tr th:each="teacher:${teacherObj}">
+      
+      <td th:text="${teacher.teacherId}"></td>
+       <td>
+      <img src=" "  class = "my-profileimage" th:src="@{'/img/'+${teacher.image}}" alt="profileimage">
+      <span th:text="${teacher.teacherName}"></span>
+      </td>
+      <td th:text="${teacher.teacherContact}"></td>
+      <td th:text="${teacher.teacherRole}"></td>
+      <td th:text="${teacher.image}"></td>
+     
+   <td>
+  
+    <a th:href="@{'/viewteachers/'+${teacher.teacherId}}" class="btn btn-danger btn-sm">delete</a>
+ 
+ <!-- <form method="post" th:action="@{'/updateteacher/'+${teacher.TeacherId}}" > -->
+  <a  th:href = "@{/updateform/{teacherId}(teacherId=${teacher.teacherId})}" type="submit" class="btn btn-primary btn-sm">update</a>
+   
+ 
+    </td> 
+   </tr>
+  
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+</div>
+
+</div>
+</section>
+</body>
+</html>

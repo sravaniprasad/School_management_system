@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>home page</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<section>
+<div class="container mt-5">
+
+
+ <div class="my-card mr-3">
+    <div class="card-body">
+  <h1 class="text-center"> Update Form</h1>
+  
+  
+  <div class="container-fluid mt-1">
+  <div class="row">
+  
+  
+  <div class="col-md-10 offset-md-1"> 
+  
+  
+  
+  
+  <form th:action="@{/teacherupdate/{teacherId}(teacherId=${teacher.teacherId})}"  th:object="${teacher}"  enctype="multipart/form-data" method="post"  class="mt-2">
+  <input type="hidden" th:value="${teacher.teacherId}" name="teacherId"/>
+  <!-- <label class="form-label">teacher name</label> -->
+   <div class="input-group">
+   
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+          
+             <i class="fas fa-user-alt"></i>
+           
+           </div>
+  
+  </div>
+  
+      <input th:value="${teacher.teacherName}" type="text" id="teacherName" name="teacherName" placeholder="enter teacher name here" class="form-control" >
+ 
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input th:value="${teacher.teacherRole}" type="text" id="teacherRole" name="teacherRole" placeholder="enter teacher role here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input th:value="${teacher.teacherAddress}" type="text" id="teacherAddress" name="teacherAddress" placeholder="enter teacher address here" class="form-control">
+  </div>
+  
+  
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  
+   <input th:value="${teacher.teacherAge}" type="text" id="teacherAge" name="teacherAge" placeholder="enter teacher age here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  <input th:value="${teacher.teacherContact}" type="text" id="teacherContact" name="teacherContact" placeholder="enter teacher contact number here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input th:value="${teacher.teacherAlternateContact}" type="text" id="teacherAlternateContact" name="teacherAlternateContact" placeholder="enter teacher alternate contact here" class="form-control">
+  </div>
+  
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input  th:value="${teacher.teacherEmail}" type="email" id="teacherEmail" name="teacherEmail" placeholder="enter teacher Email here" class="form-control">
+  </div>
+  
+    <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input th:value="${teacher.teacherPassword}" type="password" id="teacherPassword" name="teacherPassword" placeholder="give any password to teacher login" class="form-control">
+  </div>
+  
+  <div class="container">
+  <img style="width:150px;height:150px;" class="img-fluid my-profile"  th:src="@{'/img/'+${teacher.image}}" alt=""/>
+  </div> 
+  <div class="custom-file mt-3">
+  
+  <input type="file" class="form-control-file" th:value="${profileimage}" placeholder="Teacher image"id="myfile"   name="profileimage" />
+  </div>
+  
+  
+  
+  
+ <div class="container text-center">
+  <button class="btn btn-primary ">save</button>
+  </div>
+  
+  
+  </form>
+  </div>
+ </div>
+ </div>
+  </div>
+  </div>
+
+</div>
+</section>
+</body>
+</html>

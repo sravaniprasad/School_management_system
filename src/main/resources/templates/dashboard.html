@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="based::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section> <!-- class="background    align-items-center"> -->
+ <h1><i><marquee>:Welcome to Dashboard:</marquee></i></h1>
+ <!-- <h2 class = "text-right" th:text="${student.name}"></h2> -->
+ <!-- <h3 class="mt-3">Name:<span  th:text="${session.admins.adminId}"></span></h3> -->
+  
+   <div class="container">
+<div class="card-deck" >
+  <div class="card"  >
+    <img class="card-img-top" src="../img/students.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><b> <i>Student</i></b></h5>
+      <p class="card-text">Here,Student can login and view student portal..... </p>
+     
+       <button type="login" class="btn btn-success"><a th:href="@{/studentlogin}" style="color:white;">login</a></button>
+    </div>
+  </div>
+
+  <div class="card"> 
+    <img class="card-img-top" src="../img/teacher.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><b><i>Teacher</i></b></h5>
+      <p class="card-text">Here,Teacher can login and view teacher portal and can also check the performance of students </p>
+     
+       <button type="login" class="btn btn-success"><a th:href="@{/teacherlogin}" style="color:white;">login</a></button>
+   
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="../img/admin.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><b><i>Admin</i></b></h5>
+      <p class="card-text">Admin can manage the details of student and login</p>
+      
+       <button type="login" class="btn btn-success"><a th:href="@{/adminlogin}" style="color:white;">login</a></button>
+   
+    </div>
+  </div>
+</div>
+   
+   </div>
+  </section>
+ 
+</body>
+</html>

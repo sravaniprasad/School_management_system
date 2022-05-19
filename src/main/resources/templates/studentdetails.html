@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="container mt-5">
+<div class="my-card mr-3 ml-3">
+<div class="card-body">
+
+<div class="container text-center">
+<!-- <img src="" style="height:200px; width:200px;"class="my-profileimage" th:src="@{'/img/+${student.image}}" alt="profileimage">
+ -->
+  <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${student.image}}" alt="profileimage">
+      
+ <h3 class="mt-3"><span  th:text="${student.fullName}"></span></h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">studentId</th>
+      <th scope="col">SMS10<span th:text="${student.rollNo}"></span></th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">Father name</th>
+      <td><span th:text="${student.fatherName}"></span></td>
+   
+    </tr>
+  
+   <tr>
+      <th scope="row">Mother name</th>
+      <td><span th:text="${student.motherName}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Address</th>
+      <td><span th:text="${student.studentAddress}"></span></td>
+   
+    </tr>
+     
+     <tr>
+      <th scope="row">contact Number</th>
+      <td><span th:text="${student.contactNumber}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Email</th>
+      <td><span th:text="${student.studentEmail}"></span></td>
+     
+      
+    </tr>
+    
+     <tr>
+      <th scope="row">Percentage</th>
+      <td><span th:text="${student.percentage}"></span></td>
+   
+    </tr>
+   
+   
+    
+  
+   
+  </tbody>
+</table>
+ 
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+</section>
+
+</body>
+</html>

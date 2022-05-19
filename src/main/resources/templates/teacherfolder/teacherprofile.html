@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="teacherbase::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="container mt-5">
+<div class="my-card mr-3 ml-3">
+
+<!-- <form enctype="multipart/form-data" method="post" >
+<div class="container text-center">
+
+<h3 class="mt-3"> <span th:text="${session.students.fullName}"></span></h3>
+</div>
+
+</form> -->
+ <!-- <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${student.image}}" alt="profileimage">
+       -->
+ <h3 class="mt-3"><span  th:text="${session.teacher.teacherName}"></span></h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">teacher Id</th>
+      <th scope="col"><span th:text="${session.teacher.teacherId}"></span></th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">teacher name</th>
+      <td><span th:text="${session.teacher.teacherName}"></span></td>
+   
+    </tr>
+  
+   <tr>
+      <th scope="row">teacher Role</th>
+      <td><span th:text="${session.teacher.teacherRole}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Address</th>
+      <td><span th:text="${session.teacher.teacherAddress}"></span></td>
+   
+    </tr>
+     
+     <tr>
+      <th scope="row">contact Number</th>
+      <td><span th:text="${session.teacher.teacherContact}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Email</th>
+      <td><span th:text="${session.teacher.teacherEmail}"></span></td>
+     
+      
+    </tr>
+    
+  </tbody>
+</table>
+ 
+  <a  type="submit" class="btn btn-primary btn-sm">Edit</a>
+  
+</div>
+
+</div>
+
+
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="studentbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="container text-center">
+<h3 class="text-center"><font size="20" face="times new roman" color="red">***Mark Sheet of Student:***</font></h3>
+<!-- <h2 class = "text-right" th:text="${studentlogindetails.fullName}"></h2>
+ --><h3 class="mt-3"><span  th:text="${session.students.fullName}"></span></h3>
+   <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${session.students.image}}" alt="profileimage">
+       
+ </div>
+ 
+    
+ 
+ <!-- <h1>maths:<span th:text="${studentMarks.mathematics}"></span></h1> -->
+ 
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">studentId</th>
+      <th scope="col">SMS10<span th:text="${session.students.rollNo}"></span></th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">Mathematics</th>
+      <td><span th:text="${studentMarks.mathematics}"></span></td>
+   
+    </tr>
+  
+   
+     
+    
+    
+     <tr>
+      <th scope="row">Java</th>
+      <td><span th:text="${studentMarks.java}"></span></td>
+     
+      
+    </tr>
+    
+     <tr>
+      <th scope="row">Python</th>
+      <td><span th:text="${studentMarks.python}"></span></td>
+   
+    </tr>
+  
+     <tr>
+      <th scope="row">Html</th>
+      <td><span th:text="${studentMarks.html}"></span></td>
+   
+    </tr>
+    
+  
+   
+  </tbody>
+</table>
+ 
+ <div class="container text-center">
+<button type="submit" class="btn bg-primary text-white">Download</button>
+</div>
+ 
+ 
+</section>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>home page</title>
+</head>
+<body>
+
+<section class="background d-flex justify-content-center  align-items-center">
+   <div class="container">
+     <div class="row">
+     
+     <div class="col-md-9 offset-md-2">
+     <div class="my-card mt-2">
+     
+     <div th:if="${session.message2}" th:classappend="${session.message2.type}" class="alert" role="alert">
+       <p class="text-center" th:text="${session.message2.content}"></p>
+       
+       <th:block th:text="${#session.removeAttribute('message2')}"></th:block>
+     </div>
+    <h1  class = "text-center">Application form</h1>
+    
+ <form novalidate action="/teacherregister" th:action="@{teacherregister}" method="post" th:object="${teacher}">
+
+
+ <div class="form-row">
+   <div class="col-md-4 mb-3">
+        <label for="name_field">Teacher Name</label>
+    <input 
+    name="teacherName"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherName')? 'is-invalid':''}"
+    id="name_field" 
+    aria-describedby="emailHelp" 
+    placeholder="Enter teacher name"
+    required
+    th:value="${teacher.teacherName}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherName')}" th:text="${e}">
+       </div>
+  </div>
+  
+
+
+  <div class="col-md-4 mb-3">
+        <label for="name_field"> Role</label>
+    <input 
+    name="teacherRole"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherRole')? 'is-invalid':''}"
+    id="name_field"  
+    placeholder="Enter your role"
+    required
+    th:value="${teacher.teacherRole}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherRole')}" th:text="${e}">
+       </div>
+  </div> 
+
+<!-- <div class="col-md-4 mb-3">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Role</label>
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>Choose...</option>
+        <option value="1">HOD</option>
+        <option value="2">Class Teacher</option>
+        <option value="3">Subject Teacher</option>
+      </select>
+      
+    </div> -->
+  
+  
+  
+   <div class="col-md-4 mb-3">
+        <label for="name_field">Age</label>
+    <input 
+    name="teacherAge"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherAge')? 'is-invalid':''}"
+    id="name_field" 
+    placeholder="Enter your age"
+    required
+    th:value="${teacher.teacherAge}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherAge')}" th:text="${e}">
+       </div>
+  </div>
+
+  <div class="col-md-4 mb-3">
+        <label for="name_field">address</label>
+    <input 
+    name="teacherAddress"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherAddress')? 'is-invalid':''}"
+    id="address_field"  
+    placeholder="Enter your address"
+    required
+    th:value="${teacher.teacherAddress}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherAddress')}" th:text="${e}">
+       </div>
+  </div>
+  
+ 
+  
+  
+  <div class="col-md-4 mb-3">
+        <label for="name_field">Contact Number</label>
+    <input 
+    name="teacherContact"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherContact')? 'is-invalid':''}"
+    id="name_field" 
+    placeholder="Enter your contact number"
+    required
+    th:value="${teacher.teacherContact}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherContact')}" th:text="${e}">
+       </div>
+  </div>
+  
+  
+  <div class="col-md-4">
+        <label for="name_field">Alternate Contact Number</label>
+    <input 
+    name="teacherAlternateContact"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherAlternateContact')? 'is-invalid':''}"
+    id="name_field" 
+    placeholder="Enter your alternate contact number"
+    required
+    th:value="${teacher.teacherAlternateContact}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherAlternateContact')}" th:text="${e}">
+       </div>
+  </div>
+  
+  
+  
+  <div class="col-md-6 mb-3">
+        <label for="name_field"> Email</label>
+    <input 
+    name="teacherEmail"
+    type="text"
+    class="form-control" 
+    th:classappend="${#fields.hasErrors('teacherEmail')? 'is-invalid':''}"
+    id="name_field" 
+    placeholder="Enter your email"
+    required
+    th:value="${teacher.teacherEmail}"/>
+    
+    <div class="invalid-feedback"th:each="e : ${#fields.errors('teacherEmail')}" th:text="${e}">
+       </div>
+  </div>
+   <div class="col-md-5">
+ 
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password"
+    name="teacherPassword" 
+    class="form-control" 
+    id="password_field" 
+    placeholder="Password"
+    required
+    />
+  </div>
+  </div>
+  
+  <div class="col-md-4 mb-3">
+  
+   <label for="myfile">Teacher Image</label>
+  <input type="file" class="form-control-file" th:classappend="${#fields.hasErrors('image')? 'is-invalid':''}" id="myfile"  th:value="${teacher.image}" name="image"><br><br>
+ <div class="invalid-feedback"th:each="e : ${#fields.errors('image')}" th:text="${e}">
+  </div>
+       </div>
+  
+  
+  <div class="form-group form-check text-center">
+    <input type="checkbox"
+     name="agreement"
+      class="form-check-input" 
+      id="agreement"/>
+    <label class="form-check-label" for="agreement">Accept Terms and conditions</label>
+  </div>
+  
+  <div class="container text-center">
+  <button type="submit" class="btn btn-success">Submit</button>
+<button type="reset" class="btn btn-warning">Reset</button>
+</div>
+</div>
+ </form> 
+ 
+  </div>
+     </div>
+   </div>
+</div>
+
+    
+</section>
+</body>
+</html>

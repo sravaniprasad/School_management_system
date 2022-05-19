@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="studentbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+  <h1>Welcome to Student Portal:</h1> 
+ <!-- <h2 class = "text-right" th:text="${student.name}"></h2> -->
+
+ <div class="card">
+  <h5 class="card-header">MarkSheet</h5> 
+  <div class="card-body">
+    <h5 class="card-title">Student can view their performance here</h5>
+    <p class="card-text">Performance of the student would be good,otherwise, admin can reject your profile</p>
+    <a href="#"  th:href="@{/viewmarksheet{studentRoll}(studentRoll=${session.students.rollNo})}" class="btn btn-primary">View Marksheet</a>
+  </div>
+</div>
+ 
+ 
+  </section>
+ 
+</body>
+</html>

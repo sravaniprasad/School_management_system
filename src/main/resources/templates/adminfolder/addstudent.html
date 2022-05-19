@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+  
+  
+  <div class="my-card mr-3">
+    <div class="card-body">
+  <h1 class="text-center">Add Student</h1>
+  
+  <div class="container-fluid mt-1">
+  <div class="row">
+  
+  
+  <div class="col-md-10 offset-md-1"> 
+  
+  <div th:if="${session.message0}" th:classappend="${session.message0.type}" class="alert" role="alert">
+       <p class="text-center" th:text="${session.message0.content}"></p>
+       
+       <th:block th:text="${#session.removeAttribute('message0')}"></th:block>
+     </div>
+  
+  
+  <form action="#" th:object="${studentlogindetails}" enctype="multipart/form-data" method="POST" th:action="@{/studentprocess}" class="mt-2">
+  
+   <div class="input-group">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fas fa-user-alt"></i>
+           
+           </div>
+  
+  </div>
+  
+      <input type="text" id="fullName" name="fullName" placeholder="enter student name here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input type="text" id="fatherName" name="fatherName" placeholder="enter student father name here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input type="text" id="motherName" name="motherName" placeholder="enter student mother name here" class="form-control">
+  </div>
+  
+  
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  
+   <input type="text" id="percentage" name="percentage" placeholder="enter student percentage here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  <input type="text" id="studentAddress" name="studentAddress" placeholder="enter student Address here" class="form-control">
+  </div>
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input type="text" id="contactNumber" name="contactNumber" placeholder="enter student contact number here" class="form-control">
+  </div>
+  
+  
+  
+  <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input type="email" id="studentEmail" name="studentEmail" placeholder="enter student Email here" class="form-control">
+  </div>
+  
+   <div class="input-group mt-3">
+        <div class="input-group-prepend">
+           <div class="input-group-text">
+             <i class="fa fa-plus"></i>
+           
+           </div>
+  
+  </div>
+  
+  <input type="password" id="password" name="password" placeholder="give any password to student login" class="form-control">
+  </div>
+  
+  <div class="custom-file mt-3">
+  
+  <input type="file" class="form-control-file"  id="myfile"   name="profileimage" />
+  </div>
+  
+  
+  
+  
+ <div class="container text-center">
+  <button class="btn btn-primary">save</button>
+  </div>
+  
+  
+  </form>
+  </div>
+ </div>
+ </div>
+  </div>
+  </div>
+
+  </section>
+ 
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+
+
+
+ <h1 class = "text-center">View Notifications</h1>
+ 
+    
+    
+    <div class="container">
+
+<table class="table">
+  <thead>
+    <tr class="bg-info">
+     
+      <th scope="col">#</th>
+       <th scope="col">Admin Name </th>
+     <th scope="col">Admin Role </th>
+     
+      <th scope="col">Email</th>
+     
+     
+      <th scope="col">Notifications</th>
+      
+     <th scope="col">Action </th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="admin:${adminObj}">
+     
+      <td class="table-active" th:text="${admin.adminId}"></td>
+      <td class="table-active" th:text="${admin.name}"></td>
+      <td class="table-active" th:text="${admin.role}"></td>
+      <td class="table-active" th:text="${admin.email}"></td>
+     
+    <!--  <h1> <span class="badge badge-secondary" td th:text="${admin.Notice}"></span></h1>   -->
+       <td class="table-active" th:text="${admin.Notice}"></td>
+    
+     <td class="table-active">
+        
+ 
+       <a  th:href = "@{/editform/{adminId}(adminId=${admin.adminId})}" type="submit" class="btn btn-success btn-sm">Edit</a>
+       
+  
+    </td> 
+   </tr>
+  
+  </tbody>
+ </table>
+    
+  
+   
+
+</div>
+
+
+</section>
+</body>
+</html>

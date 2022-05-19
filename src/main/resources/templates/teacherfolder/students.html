@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="teacherbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<section>
+
+<div class="container mt-5">
+
+<h1 align="center">view students</h1>
+ </div>
+<div class="container">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">studentRollNo</th>
+      <th scope="col">Student fullName</th>
+      <th scope="col">Student Email</th>
+      <th scope="col">Student contactNumber</th>
+      <th scope="col">Student percentage</th>
+      <th scope="col">Student password</th>
+      <th scope="col">Student image</th>
+       <th scope="col">Action</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="student:${studentObj}">
+      
+      <td th:text="${student.rollNo}"></td>
+  
+      <td th:text="${student.fullName}"></td>
+       <td th:text="${student.studentEmail}"></td>
+      <td th:text="${student.contactNumber}"></td>
+       <td th:text="${student.percentage}"></td>
+      <td th:text="${student.password}"></td>
+       <td th:text="${student.image}"></td>
+  <td>
+  <a th:href = "@{/marklist/{rollNo}(rollNo=${student.rollNo})}" type="submit" class="btn btn-success btn-sm">Assign Marks</a>
+ 
+ 
+  </td>
+ 
+     
+     
+  </tr>
+   
+  </tbody>
+</table>
+
+
+<!--  pagination  -->
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+</div>
+
+
+</section>
+</body>
+</html>

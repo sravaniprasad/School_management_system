@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="container mt-5">
+  <h1>Welcome to Admin portal:::<small><span th:text="${admin.name}"></span> </small> </h1> 
+ <!-- <h2 class = "text-right" th:text="${student.name}"></h2> -->
+ <!-- <h1>welcome <small><span th:text="${studentlogindetails.fullName}"></span> </small> </h1> -->
+ 
+ <div class="card">
+  <div class="card-header">
+    Notifications
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Notification</h5>
+    <p class="card-text">Send any Notification to Student and Teacher</p>
+    <a href="#" th:href="@{/notification}" class="btn btn-primary">Give Notification</a>
+  </div>
+</div>
+ 
+      <h3 class= "text-center mt-5">Notice Board</h3>
+ <div class="alert alert-info mt-3" role="alert">
+ <h3 class= "text-center"><span  th:text="${session.admins.Notice}"></span></h3>
+ <h5 class= "text-center"> <p class="card-text"><small class="text-muted">Posted by :<td class="table-active" th:text="${session.admins.name}"></td></small></p></h5>
+    
+</div>
+ 
+ 
+  
+ 
+   </div>
+  </section> 
+ 
+</body>
+</html>

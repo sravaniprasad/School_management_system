@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="studentbase::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="container mt-5">
+<div class="my-card mr-3 ml-3">
+
+
+ <h3 class="mt-3"><span  th:text="${session.students.fullName}"></span></h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">studentId</th>
+      <th scope="col">SMS10<span th:text="${session.students.rollNo}"></span></th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">Father name</th>
+      <td><span th:text="${session.students.fatherName}"></span></td>
+   
+    </tr>
+  
+   <tr>
+      <th scope="row">Mother name</th>
+      <td><span th:text="${session.students.motherName}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Address</th>
+      <td><span th:text="${session.students.studentAddress}"></span></td>
+   
+    </tr>
+     
+     <tr>
+      <th scope="row">contact Number</th>
+      <td><span th:text="${session.students.contactNumber}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Email</th>
+      <td><span th:text="${session.students.studentEmail}"></span></td>
+     
+      
+    </tr>
+    
+     <tr>
+      <th scope="row">Percentage</th>
+      <td><span th:text="${session.students.percentage}"></span></td>
+   
+    </tr>
+   
+   
+    
+  
+   
+  </tbody>
+</table>
+ 
+  <a  type="submit" class="btn btn-primary btn-sm">Edit</a>
+  
+</div>
+
+</div>
+
+
+</section>
+
+
+</body>
+</html>

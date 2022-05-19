@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="adminbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<section>
+
+<div class="container mt-5">
+
+<h1 align="center">view students</h1>
+<div th:if="${session.message12}" th:classappend="${session.message12.type}" class="alert" role="alert">
+       <p class="text-center" th:text="${session.message12.content}"></p>
+       
+       <th:block th:text="${#session.removeAttribute('message12')}"></th:block>
+     </div>
+<h1> <button type="submit" class="btn btn-success"><a th:href="@{/addstudent}" style="color:white;">Add Student</a></button></h1>
+ </div>
+<div class="container">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">studentRollNo</th>
+      <th scope="col">Student fullName</th>
+      <th scope="col">Student Email</th>
+      <th scope="col">Student contactNumber</th>
+      <!-- <th scope="col">Student password</th> -->
+      <th scope="col">Student image</th>
+      
+     <th scope="col">Action </th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="student:${studentObj}">
+      
+      <td th:text="${'SMS10'+student.rollNo}"></td>
+  
+  
+      <td>
+      <img src=" "  class = "my-profileimage" th:src="@{'/img/'+${student.image}}" alt="profileimage">
+      <span th:text="${student.fullName}"></span>
+      </td>
+     
+       <td>
+        <a href="#" th:href="@{'/studentdetails/'+${student.rollNo}}">
+       <span th:text="${student.studentEmail}"  ></span></a>
+       </td>
+      
+       <td th:text="${student.contactNumber}"></td>
+       <td th:text="${student.image}"></td>
+     
+     <td>
+        <a th:href="@{'/students/'+${student.rollNo}}" class="btn btn-danger btn-sm">delete</a>
+ 
+        <a  th:href = "@{/updatestudentform/{rollNo}(rollNo=${student.rollNo})}" type="submit" class="btn btn-primary btn-sm">update</a>
+  
+    </td> 
+   </tr>
+   
+  </tbody>
+ </table>
+
+
+<!--  pagination  -->
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+</div>
+
+
+</section>
+</body>
+</html>
+
+   
+       
