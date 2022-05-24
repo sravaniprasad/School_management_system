@@ -14,10 +14,18 @@
   <div class="card-body">
     <h5 class="card-title">Student can view their performance here</h5>
     <p class="card-text">Performance of the student would be good,otherwise, admin can reject your profile</p>
-    <a href="#"  th:href="@{/viewmarksheet{studentRoll}(studentRoll=${session.students.rollNo})}" class="btn btn-primary">View Marksheet</a>
+   <!--  <a href="#"  th:href="@{/viewmarksheet}" class="btn btn-primary">View Marksheet</a>
+   -->
+   
+   <a href="#"  th:href="@{/marksheet/{studentRoll}(studentRoll=${session.students.rollNo})}" class="btn btn-primary">View Marksheet</a>
+  
   </div>
 </div>
  
+<!-- <div class="alert alert-info mt-3" role="alert">
+ <h3 class= "text-center"><span  th:text="${session.admins.Notice}"></span></h3>
+ <h5 class= "text-center"> <p class="card-text"><small class="text-muted">Posted by :<td class="table-active" th:text="${session.admins.name}"></td></small></p></h5>
+    </div> -->
  
   </section>
  

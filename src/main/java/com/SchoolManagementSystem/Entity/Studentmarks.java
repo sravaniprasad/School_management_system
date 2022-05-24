@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name="Studentmarks")
 public class Studentmarks {
 
@@ -46,30 +48,30 @@ public class Studentmarks {
 //	
 //	private String status;
 //	
-//	public Integer getTotal() {
-//		return mathematics + java + python + html;
-//	} 
-//	
-//	public Integer getAvg() {
-//		return mathematics + java + python + html/4;
-//	}
-//	
-//	
-//	public String getStatus() {
-//		String status;
-//		double avg=mathematics + java + python + html/4;
-//		
-//		if(avg>50) {
-//			status="Distinction";
-//		}
-//		else if(avg>35) {
-//			status="Pass";
-//		}
-//		else { 
-//			status="Fail";
-//		}
-//		return status; 
-//		}
+	public Integer getTotal() {
+		return mathematics + java + python + html;
+	} 
+	
+	public Integer getAvg() {
+		return mathematics + java + python + html/4;
+	}
+	
+	
+	public String getStatus() {
+		String status;
+		double avg=mathematics + java + python + html/4;
+		
+		if(avg>50) {
+			status="Distinction";
+		}
+		else if(avg>35) {
+			status="Pass";
+		}
+		else { 
+			status="Fail";
+		}
+		return status; 
+		}
 	
 	
 	

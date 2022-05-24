@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.SchoolManagementSystem.Entity.Studentlogindetails;
 import com.SchoolManagementSystem.Entity.Studentmarks;
 import com.SchoolManagementSystem.Entity.Teacher;
 
@@ -23,6 +24,7 @@ public interface TeacherService {
 
 	public void updateTeacher(Teacher teacher1, int teacherId);
 
+	public Teacher checkEmail(String teacherEmail);
 	
 	
 }

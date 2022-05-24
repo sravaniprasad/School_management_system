@@ -73,6 +73,12 @@ public class TeacherServiceImpl  implements TeacherService{
 		this.teacherRepository.save(teacher1);
 	}
 
+	@Override
+	public Teacher checkEmail(String teacherEmail) {
+		// TODO Auto-generated method stub
+		return this.teacherRepository.findByteacherEmail(teacherEmail);
+	}
+
 
 	
 

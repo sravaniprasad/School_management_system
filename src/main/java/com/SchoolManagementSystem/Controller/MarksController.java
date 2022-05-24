@@ -1,5 +1,7 @@
 package com.SchoolManagementSystem.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -20,9 +22,6 @@ import com.SchoolManagementSystem.Helper.Message;
 import com.SchoolManagementSystem.Service.MarksService;
 import com.SchoolManagementSystem.Service.StudentdetailsService;
 import com.SchoolManagementSystem.Service.TeacherService;
-
-
-
 
 @Controller
 
@@ -47,6 +46,22 @@ public class MarksController {
 			
 		}
 	
+
+	 
+	 
+	 @GetMapping("/marksheet/{studentRoll}")
+		public String Studentmarks(Model model,HttpSession session,@PathVariable("studentRoll") int studentRoll) {
+		
+	//	 Studentmarks studmarks=marksService.
+		 
+		 
+		Studentmarks studentmarks=	this.marksService.getStudentbyId(studentRoll);
+			model.addAttribute("studentMarks",studentmarks);
+		//	model.addAttribute("Marks", new Studentmarks());
+			return "studentfolder/marksheet";
+					
+		}
+	 
 	 
 	 @PostMapping(value="/result{studentRoll}")//,method=RequestMethod.POST)
 		public String viewMarks(@Valid @ModelAttribute("studentMarks") Studentmarks studentMarks,BindingResult result1,
@@ -85,7 +100,7 @@ Studentlogindetails  studentlogindetails=this.studentdetailsservice.getStudentlo
 			}
 				
 			return "teacherfolder/assignmarks";
-		}
+		} 
 		 
 
 	

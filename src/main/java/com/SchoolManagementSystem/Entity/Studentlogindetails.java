@@ -1,5 +1,6 @@
 package com.SchoolManagementSystem.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -60,12 +61,12 @@ public class Studentlogindetails {
 	
     private String image;
 
-   @OneToMany(mappedBy="student",cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+   @OneToMany(mappedBy="student",cascade=CascadeType.ALL)
    private List<Teacher> teacher;
     
    
-   @OneToMany
-   private List<Studentmarks> studentmarks;
+   @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+   private List<Studentmarks> studentmarks =new ArrayList();
     
 	@Override
 	public String toString() {

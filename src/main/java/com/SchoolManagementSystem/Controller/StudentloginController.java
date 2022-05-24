@@ -1,14 +1,21 @@
 package com.SchoolManagementSystem.Controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -27,12 +34,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import com.SchoolManagementSystem.Emailservice.EmailService;
+import com.SchoolManagementSystem.Emailservice.PdfExporter;
+import com.SchoolManagementSystem.Emailservice.Pdfservice;
 import com.SchoolManagementSystem.Entity.Studentlogindetails;
 import com.SchoolManagementSystem.Entity.Studentmarks;
 import com.SchoolManagementSystem.Entity.Teacher;
 import com.SchoolManagementSystem.Helper.Message;
+import com.SchoolManagementSystem.Repository.MarksRepository;
 import com.SchoolManagementSystem.Repository.StudentdetailsRepository;
+import com.SchoolManagementSystem.Service.MarksService;
 import com.SchoolManagementSystem.Service.StudentdetailsService;
+import com.lowagie.text.DocumentException;
 @Controller
 
 public class StudentloginController {
@@ -45,7 +57,14 @@ public class StudentloginController {
 	@Autowired
     StudentdetailsRepository studentrepository;
 
+	@Autowired
+	MarksService marksService;
 	
+	@Autowired
+	Pdfservice service;
+	
+	@Autowired
+	MarksRepository marksRepo;
 	@PostMapping("/checkstudentLogin")
 	public String checkstudentLogin(Model model,@ModelAttribute Studentlogindetails studentlogindetails,HttpSession session) {
 		
@@ -60,16 +79,60 @@ public class StudentloginController {
 		}
 		
 	} 
-	 @GetMapping("/viewmarksheet{studentRoll}")
-		public String student(Model model, @PathVariable int studentRoll) {
-			
-			model.addAttribute("studentMarks",new Studentmarks());
-			
-			return "studentfolder/viewmarksheet";
-		}
+	
+	
+	
+	
+	
+	
+	@GetMapping("/viewmarksheet")
+	public String student(Model model,@ModelAttribute Studentmarks studentMarks) {
+		
+	 List<Studentmarks> studentmarks = this.marksService.getAllStudentmarks();	
+	 model.addAttribute("studentsObj", studentmarks);
+		model.addAttribute("studentMarks",new Studentmarks());
+		//session.setAttribute("studentMarks", studentMarks);
+		return "studentfolder/viewmarksheet";
+	}
 	 
+	
+	
+	
+	
+
+	
+	@GetMapping("/download_marksheet")
+	public void downloadcsv(HttpServletResponse response) throws IOException {
+		response.setContentType("text/csv");
+		response.setHeader("Content-Disposition", "attachment; file=marks.csv");
+		marksService.downloadCSV(response.getWriter(), createData());
+	}
+	
+	@GetMapping("/download_marksheet pdf")
+	public void downloadpdf(HttpServletResponse response) throws DocumentException, IOException {
+		response.setContentType("application/pdf");
+		DateFormat format=new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
+		String currentDateTime =format.format(new Date());
+		response.setHeader("Content-Disposition", "attachment; filename=Report From SMS_ "+ currentDateTime+" .pdf");
+		List<Studentmarks> listMarks=service.listAll();
+		PdfExporter exporter=new PdfExporter(listMarks);
+		exporter.export(response);
+	//	marksService.downloadPDF(response.getWriter(), createData());
+	}
+	
+	private List<Studentmarks> createData(){
+		
+		//List<Studentmarks> marks=new ArrayList();
+		 List<Studentmarks> studentmarks = this.marksService.getAllStudentmarks();	
+		
+		//marks.add();
+		return studentmarks;
+	}
 	 
-	 
+	
+	
+	
+	
 	 
 	 @GetMapping("/dashboard")
 		public String dashboard(Model model) {
@@ -92,6 +155,7 @@ public class StudentloginController {
 		@GetMapping("/about")
 		public String about(Model model) {
 			model.addAttribute("title","about-school mgmy system");
+			
 			
 			return "about";
 			
@@ -248,3 +312,7 @@ public class StudentloginController {
 	
 	
 }
+
+
+//https://www.codejava.net/frameworks/spring-boot/spring-data-jpa-filter-search-examples
+

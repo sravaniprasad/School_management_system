@@ -51,7 +51,6 @@ public class Teacher {
 	@NotBlank(message = "Age is mandatory")
 	private String teacherAge;
 	
-	@NotBlank(message = "name field is required!!!")
 	private String teacherPassword;
 	
 	
