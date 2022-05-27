@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -27,15 +29,19 @@ public class Studentmarks {
 	private int enrollmentNo;
 	
 	@NotNull(message = " please provide marks!!!")
+	@Max(value=50,message="Marks Should be in 50")
 	private Integer mathematics;
 	
 	@NotNull(message = " please provide marks!!!")
+	@Max(value=50,message="Marks Should be in 50")
 	private Integer java;
 	
 	@NotNull(message = " please provide marks!!!")
+	@Max(value=50,message="Marks Should be in 50")
 	private Integer python;
 	
 	@NotNull(message = " please provide marks!!!")
+	@Max(value=50,message="Marks Should be in 50")
 	private Integer html;
 	
 	@ManyToOne
@@ -52,23 +58,31 @@ public class Studentmarks {
 		return mathematics + java + python + html;
 	} 
 	
-	public Integer getAvg() {
-		return mathematics + java + python + html/4;
+	public double getAvg() {
+		int total=mathematics + java + python + html;
+		double avg= total /4;
+		return avg;
 	}
 	
-	
+	public Integer getPercentage() {
+		int total=mathematics + java + python + html;
+		int percentage=total /2;
+		return percentage;
+	}
 	public String getStatus() {
 		String status;
-		double avg=mathematics + java + python + html/4;
+		int total=mathematics + java + python + html;
+		int percentage=total /2;
 		
-		if(avg>50) {
+		if(percentage>70) {
 			status="Distinction";
 		}
-		else if(avg>35) {
+		else if(percentage>35) {
 			status="Pass";
 		}
 		else { 
-			status="Fail";
+			
+			status="Fail-Not Eligible";
 		}
 		return status; 
 		}

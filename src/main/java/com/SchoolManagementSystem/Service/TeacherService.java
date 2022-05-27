@@ -1,12 +1,9 @@
 package com.SchoolManagementSystem.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.validation.Valid;
-
-import com.SchoolManagementSystem.Entity.Studentlogindetails;
-import com.SchoolManagementSystem.Entity.Studentmarks;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import com.SchoolManagementSystem.Entity.Teacher;
 
 public interface TeacherService {
@@ -16,8 +13,8 @@ public interface TeacherService {
 	public Teacher checkteacherLogin(String email, String password);
 	
 	
-	List<Teacher> getAllTeachers();
-
+	  List<Teacher> getAllTeachers();
+	
 	public void deleteTeacherByteacherId(int teacherId);
 	
 	public Teacher getTeacherByteacherId(int teacherId);
@@ -25,6 +22,7 @@ public interface TeacherService {
 	public void updateTeacher(Teacher teacher1, int teacherId);
 
 	public Teacher checkEmail(String teacherEmail);
-	
+
+	public Page<Teacher> getAllTeachers(Pageable pageable);
 	
 }

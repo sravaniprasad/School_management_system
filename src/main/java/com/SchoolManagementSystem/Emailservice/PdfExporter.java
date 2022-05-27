@@ -32,6 +32,7 @@ public void writeTableHeader(PdfPTable table) {
 	PdfPCell cell=new PdfPCell();
 	cell.setBackgroundColor(Color.LIGHT_GRAY);
 	cell.setPadding(5);
+	cell.setPaddingRight(10);
 	
 	Font font=FontFactory.getFont(FontFactory.HELVETICA);
 	font.setColor(Color.WHITE);
@@ -51,6 +52,9 @@ public void writeTableHeader(PdfPTable table) {
 	
 	cell.setPhrase(new Phrase("Total"));
 	table.addCell(cell);
+	
+	cell.setPhrase(new Phrase("Average"));
+	table.addCell(cell);
 	cell.setPhrase(new Phrase("Status"));
 	table.addCell(cell);
 
@@ -63,6 +67,7 @@ public void writeTableData(PdfPTable table) {
 		table.addCell(String.valueOf(marks.getJava()));
 		table.addCell(String.valueOf(marks.getPython()));
 		table.addCell(String.valueOf(marks.getTotal()));
+		table.addCell(String.valueOf(marks.getAvg()));
 		table.addCell(String.valueOf(marks.getStatus()));
 		
 	//	table.addCell(String.valueOf(marks.getStatus()));
@@ -81,7 +86,7 @@ public void export(HttpServletResponse response) throws DocumentException, IOExc
 	title.setAlignment(Paragraph.ALIGN_CENTER);
 	document.add(title);
 	//document.add(new Paragraph("List of all Students"));
-	PdfPTable table=new PdfPTable(7);
+	PdfPTable table=new PdfPTable(8);
 	//table.setWidthPercentage(100);
 	table.setSpacingBefore(20);
 	//table.setHeaderRows(6);

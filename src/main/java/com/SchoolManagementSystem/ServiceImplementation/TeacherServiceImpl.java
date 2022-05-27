@@ -1,12 +1,11 @@
 package com.SchoolManagementSystem.ServiceImplementation;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-import com.SchoolManagementSystem.Entity.Studentlogindetails;
-import com.SchoolManagementSystem.Entity.Studentmarks;
 import com.SchoolManagementSystem.Entity.Teacher;
 import com.SchoolManagementSystem.Repository.TeacherRepository;
 import com.SchoolManagementSystem.Service.TeacherService;
@@ -33,11 +32,12 @@ public class TeacherServiceImpl  implements TeacherService{
 
 	
 
-	@Override
-	public List<Teacher> getAllTeachers() 
-	{
-		return teacherRepository.findAll();
-	}
+	
+	  @Override 
+	  public List<Teacher> getAllTeachers() { 
+		  return teacherRepository.findAll(); 
+		  }
+	 
 
 	
 	@Override
@@ -79,8 +79,20 @@ public class TeacherServiceImpl  implements TeacherService{
 		return this.teacherRepository.findByteacherEmail(teacherEmail);
 	}
 
+	
+
+	
+
+	@Override
+	public Page<Teacher> getAllTeachers(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return teacherRepository.findAll(pageable);
+	}
+
 
 	
 
 	
 }
+
+

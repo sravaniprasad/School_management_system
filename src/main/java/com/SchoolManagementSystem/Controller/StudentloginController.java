@@ -22,6 +22,9 @@ import javax.validation.Valid;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -96,7 +99,12 @@ public class StudentloginController {
 	}
 	 
 	
-	
+	@GetMapping("/editprofile")
+	public String editstudprofile(Model model) {
+		
+		model.addAttribute("editprofile",new Studentlogindetails());
+		return "studentfolder/editprofile";
+	}
 	
 	
 
@@ -165,11 +173,13 @@ public class StudentloginController {
 	 
 	 
 	 
-	 @GetMapping("/viewstudents")
-	 public String viewstudents(Model model) {
-		List<Studentlogindetails> studentlistDetails = this.studentdetailsservice.getAllStudents() ;
+	 @GetMapping("/viewstudents/{page}")
+	 public String viewstudents(@PathVariable(value="page") Integer page,Model model) {
+		 Pageable pageable= PageRequest.of(page, 2);
+		Page<Studentlogindetails> studentlistDetails = this.studentdetailsservice.getAllStudents(pageable) ;
 		 model.addAttribute("studentObj", studentlistDetails);
-		 
+		 model.addAttribute("currentPage", page);
+		 model.addAttribute("totalPages", studentlistDetails.getTotalPages());
 		 return "adminfolder/viewstudents";
 	 }
 	 
@@ -185,6 +195,17 @@ public class StudentloginController {
 			return "teacherfolder/students";
 	}
 		
+
+	 @GetMapping("/students/{pageNumber}")
+	 public String viewstudent(Model model,@PathVariable(value="pageNumber")int pageNumber) {
+	 	Pageable pageable= PageRequest.of(pageNumber, 2);
+	 	Page<Studentlogindetails>studentlistDetails=this.studentdetailsservice.getAllStudents(pageable);
+	 	//List<Teacher> teacher1 = this.teacherservice.getAllTeachers() ;
+	 	 model.addAttribute("studentObj", studentlistDetails);
+	 	model.addAttribute("currentPage", pageNumber);
+	 	model.addAttribute("totalPages", studentlistDetails.getTotalPages());
+	 	 return "teacherfolder/students";
+	 }
 
 	 
 		@PostMapping("/changepassword")

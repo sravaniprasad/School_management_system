@@ -14,7 +14,11 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.data.domain.Pageable;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -210,11 +214,25 @@ public String updateStudent(@ModelAttribute Studentlogindetails studentlogindeta
 
 @GetMapping("/viewteachers")
 public String viewstudents(Model model) {
+	
 	List<Teacher> teacher = this.teacherservice.getAllTeachers() ;
 	 model.addAttribute("teacherObj", teacher);
 	
 	 return "adminfolder/viewteachers";
 }
+
+
+@GetMapping("/viewteachers/{pageNumber}")
+public String viewstudentsPage(Model model,@PathVariable int pageNumber) {
+	Pageable pageable= PageRequest.of(pageNumber, 2);
+	Page<Teacher> teacher=this.teacherservice.getAllTeachers(pageable);
+	//List<Teacher> teacher1 = this.teacherservice.getAllTeachers() ;
+	 model.addAttribute("teacherObj", teacher);
+	model.addAttribute("currentPage", pageNumber);
+	model.addAttribute("totalPages", teacher.getTotalPages());
+	 return "adminfolder/viewteachers";
+}
+
 	
 	@GetMapping("/addteacher")
 	public String addteacher(Model model) {
@@ -290,7 +308,7 @@ public String updateTeacher(@ModelAttribute Teacher teacher,@PathVariable (value
 	}
 	//this.teacherservice.updateTeacher(teacher, teacherId);
 	this.teacherservice.addTeacher(teacher);
-	return "redirect:/adminfolder/viewteachers";
+	return "redirect:/viewteachers{teacherId}";
 	
 
 }

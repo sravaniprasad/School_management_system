@@ -54,11 +54,11 @@
       
     </tr>
     
-     <tr>
+    <!--  <tr>
       <th scope="row">Percentage</th>
       <td><span th:text="${session.students.percentage}"></span></td>
    
-    </tr>
+    </tr> -->
    
    
     
@@ -67,7 +67,7 @@
   </tbody>
 </table>
  
-  <a  type="submit" class="btn btn-primary btn-sm">Edit</a>
+  <a th:href="@{/editprofile}" type="submit" class="btn btn-primary btn-sm">Edit</a>
   
 </div>
 

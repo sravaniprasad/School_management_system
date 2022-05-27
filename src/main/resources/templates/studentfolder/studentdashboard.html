@@ -3,6 +3,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+<script type="text/javascript" src"../../static/js/view.js"></script>
+
 </head>
 <body>
 <section>
@@ -17,7 +21,7 @@
    <!--  <a href="#"  th:href="@{/viewmarksheet}" class="btn btn-primary">View Marksheet</a>
    -->
    
-   <a href="#"  th:href="@{/marksheet/{studentRoll}(studentRoll=${session.students.rollNo})}" class="btn btn-primary">View Marksheet</a>
+<a href="#"  th:href="@{/marksheet/{studentRoll}(studentRoll=${session.students.rollNo})}" class="btn btn-primary" onclick="myFunction()" >View Marksheet</a>
   
   </div>
 </div>

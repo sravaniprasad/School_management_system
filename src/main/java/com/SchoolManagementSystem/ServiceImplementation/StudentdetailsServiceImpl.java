@@ -3,6 +3,8 @@ package com.SchoolManagementSystem.ServiceImplementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.SchoolManagementSystem.Entity.Studentlogindetails;
@@ -72,6 +74,13 @@ public void updateStudent(Studentlogindetails studentlogindetails1,int rollNo) {
 public Studentlogindetails checkEmail(String studentEmail) {
 	// TODO Auto-generated method stub
 	return this.studentRepository.findBystudentEmail(studentEmail);
+}
+
+
+@Override
+public Page<Studentlogindetails> getAllStudents(Pageable pageable) {
+	// TODO Auto-generated method stub
+	return studentRepository.findAll(pageable);
 }
 
 

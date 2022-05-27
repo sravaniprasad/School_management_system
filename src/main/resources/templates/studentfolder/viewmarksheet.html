@@ -7,7 +7,7 @@
 <body>
 <section>
 <div class="container text-center">
-<h3 class="text-center mt-5"><font size="20" face="times new roman" color="red">***Results:***</font></h3>
+<h3 class="text-center mt-5"><font size="20" face="times new roman" color="red">Student Results:</font></h3>
 <!-- <h2 class = "text-right" th:text="${studentlogindetails.fullName}"></h2>
  --><!-- <h3 class="mt-3"><span  th:text="${session.students.fullName}"></span></h3>
    <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${session.students.image}}" alt="profileimage">
@@ -41,6 +41,8 @@
       <th scope="col">Python</th>
       <th scope="col">Java</th>
       <th scope="col">Total</th>
+      <th scope="col">Average</th>
+     <!--  <th scope="col">Percentage</th> -->
       <th scope="col">Status</th>
       
     
@@ -59,6 +61,8 @@
       <td th:text="${studentMarks.python}"></td>
       <td th:text="${studentMarks.java}"></td>
        <td th:text="${studentMarks.total}"></td>
+       <td th:text="${studentMarks.avg}"></td>
+     <!--   <td th:text="${studentMarks.percentage}"></td> -->
        <td th:text="${studentMarks.status}"></td>
       
   </tbody>

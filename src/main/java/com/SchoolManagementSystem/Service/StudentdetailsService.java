@@ -3,6 +3,10 @@ package com.SchoolManagementSystem.Service;
 import java.util.List;
 
 import javax.validation.Valid;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.SchoolManagementSystem.Entity.Studentlogindetails;
 import com.SchoolManagementSystem.Entity.Studentmarks;
 
@@ -23,7 +27,7 @@ public Studentlogindetails checkstudentLogin(String studentEmail,String password
 
 	public Studentlogindetails checkEmail(String studentEmail);
 	
-	
+	public Page<Studentlogindetails> getAllStudents(Pageable pageable);
 
 
 
