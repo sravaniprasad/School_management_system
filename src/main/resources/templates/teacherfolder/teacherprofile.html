@@ -7,8 +7,12 @@
 </head>
 <body>
 <section>
-<div class="container mt-5">
-<div class="my-card mr-3 ml-3">
+<div class="container mt-2">
+<div class="my-cards mr-3 ml-3">
+
+<div class="container text-center">
+ <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${session.teacher.image}}" alt="profileimage">
+    
 
 <!-- <form enctype="multipart/form-data" method="post" >
 <div class="container text-center">
@@ -19,7 +23,7 @@
 </form> -->
  <!-- <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${student.image}}" alt="profileimage">
        -->
- <h3 class="mt-3"><span  th:text="${session.teacher.teacherName}"></span></h3>
+ <h3 class="mt-3"><i class="fas fa-chalkboard-teacher"> </i> <span  th:text="${session.teacher.teacherName}"></span></h3>
 
 <table class="table">
   <thead>
@@ -65,12 +69,10 @@
   </tbody>
 </table>
  
-  <a  type="submit" class="btn btn-primary btn-sm">Edit</a>
-  
 </div>
 
 </div>
-
+</div>
 
 </section>
 

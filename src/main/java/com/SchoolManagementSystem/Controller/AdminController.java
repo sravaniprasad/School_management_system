@@ -96,6 +96,13 @@ public class AdminController {
 		
 	}
 	
+	@RequestMapping("/adminprofile")
+	public String profile(Model model) {
+		
+	//	model.addAttribute("students", studentlogindetails);
+		return "adminfolder/adminprofile";
+}
+	
 	@GetMapping("/notification")
 	public String notification(Model model) {
 		 List<Admin>admin=this.adminservice.getAllAdmin();
@@ -117,7 +124,7 @@ public class AdminController {
 		
 		//this.teacherservice.updateTeacher(teacher, teacherId);
 		this.adminservice.addAdmin(admin);
-		return "redirect:adminfolder/notification";
+		return "redirect:/notification";
 		
 
 	}
@@ -168,7 +175,7 @@ public class AdminController {
 	
 	studentdetailsservice.deleteStudentlogindetailsByrollNo(rollNo);
 	session.setAttribute("message12",new Message("student deleted successfully","alert-success"));
-	return "redirect:/adminfolder/viewstudents";
+	return "redirect:/viewstudents";
 	 }
 	 
 //showupdateform-----updatebutton
@@ -204,7 +211,7 @@ public String updateStudent(@ModelAttribute Studentlogindetails studentlogindeta
 	//this.teacherservice.updateTeacher(teacher, teacherId);
 	
 	this.studentdetailsservice.addStudentlogindetails(studentlogindetails);
-	return "redirect:/adminfolder/viewstudents";
+	return "redirect:/viewstudents/0";
 	  
 	
 }
@@ -222,18 +229,22 @@ public String viewstudents(Model model) {
 }
 
 
-@GetMapping("/viewteachers/{pageNumber}")
-public String viewstudentsPage(Model model,@PathVariable int pageNumber) {
-	Pageable pageable= PageRequest.of(pageNumber, 2);
-	Page<Teacher> teacher=this.teacherservice.getAllTeachers(pageable);
-	//List<Teacher> teacher1 = this.teacherservice.getAllTeachers() ;
-	 model.addAttribute("teacherObj", teacher);
-	model.addAttribute("currentPage", pageNumber);
-	model.addAttribute("totalPages", teacher.getTotalPages());
-	 return "adminfolder/viewteachers";
-}
+//@GetMapping("/viewteachers/{page}")
+//public String viewstudents(Model model,@PathVariable(value="page") Integer page) {
+//	Pageable pageable= PageRequest.of(page, 2);
+//	Page<Teacher> teacher = this.teacherservice.getAllTeachers(pageable) ;
+//	 model.addAttribute("teacherObj", teacher);
+//	 model.addAttribute("teacherObj", teacher);
+//		model.addAttribute("currentPage", page);
+//		model.addAttribute("totalPages", teacher.getTotalPages());
+//	 return "adminfolder/viewteachers";
+//}
 
-	
+
+
+
+
+
 	@GetMapping("/addteacher")
 	public String addteacher(Model model) {
 		 
@@ -308,7 +319,7 @@ public String updateTeacher(@ModelAttribute Teacher teacher,@PathVariable (value
 	}
 	//this.teacherservice.updateTeacher(teacher, teacherId);
 	this.teacherservice.addTeacher(teacher);
-	return "redirect:/viewteachers{teacherId}";
+	return "redirect:/viewteachers";
 	
 
 }

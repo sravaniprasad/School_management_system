@@ -17,7 +17,7 @@
   
   <!--nav bar -->
    <nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
-  <a class="navbar-brand" href="#">School Management System</a>
+  <a class="navbar-brand" href="#"><i class="fas fa-school "></i> School Management System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -54,11 +54,11 @@
     <div class="sidebar">
     
     <span th:onclick="toogleSidebar()" class="crossbutton">&times;</span>
-    <a href="#" class="item" th:href="@{dashboard}">Home</a>
-   
-   <a href="#" class="item" th:href="@{teacherlogin}">Teacher</a>
-    <a href="#"  class="item" th:href="@{studentlogin}">Student</a>
-<a href="#"  class="item" th:href="@{adminlogin}">Admin</a>
+    <a href="#" class="item" th:href="@{home}"><i class="fa-solid fa-house"></i>Home</a>
+ 
+   <a href="#" class="item" th:href="@{teacherlogin}"><i class="fas fa-chalkboard-teacher"></i>Teacher</a>
+    <a href="#"  class="item" th:href="@{studentlogin}"><i class="fas fa-users"></i>Student</a>
+<a href="#"  class="item" th:href="@{adminlogin}"><i class="fas fa-user-graduate"></i>Admin</a>
    
     
     

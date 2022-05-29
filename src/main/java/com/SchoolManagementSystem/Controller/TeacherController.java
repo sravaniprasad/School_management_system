@@ -6,6 +6,9 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -79,7 +82,16 @@ import com.SchoolManagementSystem.Service.TeacherService;
 	}
 
 		
-		 
+//		@GetMapping("/page/{pageNumber}")
+//		public String viewstudentsPage(Model model,@PathVariable(value="pageNumber")int pageNumber) {
+//			Pageable pageable= PageRequest.of(pageNumber, 2);
+//			Page<Teacher> teacherdetails=this.teacherService.getAllTeachers(pageable);
+//			//List<Teacher> teacher1 = this.teacherservice.getAllTeachers() ;
+//			 model.addAttribute("teacherObj", teacherdetails);
+//			model.addAttribute("currentPage", pageNumber);
+//			model.addAttribute("totalPages", teacherdetails.getTotalPages());
+//			 return "adminfolder/viewteachers";
+//		}
 		 
 		 
 		

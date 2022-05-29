@@ -13,12 +13,12 @@
  
      <!--  <h3 class= "text-center mt-5">Notice Board</h3> -->
  <div class="alert alert-info mt-3" role="alert">
- <h3 class= "text-center"><span  th:text="${session.admins.Notice}"></span></h3>
+ <h3 class= "text-center"><i class="fas fa-bell "> </i> <span  th:text="${session.admins.Notice}"></span></h3>
  <h5 class= "text-center"> <p class="card-text"><small class="text-muted">Posted by :<td class="table-active" th:text="${session.admins.name}"></td></small></p></h5>
     </div>
  <div class="card">
   <div class="card-header">
-   <b>Notifications</b> 
+  <i class="fas fa-bell"></i> <b>Notifications</b> 
   </div>
   
   <div class="card-body">
@@ -32,7 +32,7 @@
 
  <div class="card mt-3">
   <div class="card-header">
-  <b> Results</b>
+ <i class="fas fa-award"></i> <b> Results</b>
    
   </div>
   <div class="card-body">

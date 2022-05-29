@@ -49,15 +49,14 @@
 <div class="sidebar mt-5">
     
     <span th:onclick="toogleSidebar()" class="crossbutton">&times;</span>
-    <a href="#" class="item" th:href="@{/admindashboard}">Home</a>
+    <a href="#" class="item" th:href="@{/admindashboard}"><i class="fas fa-home"></i>Home</a>
     <!-- <a th:href="@{/viewstudents}" class="item">View students</a> -->
-     <a th:href="@{/viewstudents/0}" class="item">Students</a>
-      <a th:href="@{/viewteachers}" class="item">Teachers</a>
+     <a th:href="@{/viewstudents/0}" class="item"><i class="fas fa-users"></i>Students</a>
+      <a th:href="@{/viewteachers}" class="item"><i class="fas fa-chalkboard-teacher"></i>Teachers</a>
      
-    <a th:href="@{/adminprofile}" class="item">Profile</a>
-    <a href="#" class="item">Settings</a>
+    <a th:href="@{/adminprofile}" class="item"><i class="fas fa-user-circle"></i>Profile</a>
     
-    <a href="#" class="item" th:href="@{/dashboard}">Logout</a>
+    <a href="#" class="item" th:href="@{/dashboard}"><i class="fas fa-sign-out-alt"></i>Logout</a>
     
     
     </div>

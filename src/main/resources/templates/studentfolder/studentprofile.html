@@ -7,16 +7,19 @@
 </head>
 <body>
 <section>
-<div class="container mt-5">
+<div class="container ">
 <div class="my-card mr-3 ml-3">
 
+<div class="container text-center">
+ <img src=" " style="height:100px; width:100px;" class = "my-profileimage" th:src="@{'/img/'+${session.students.image}}" alt="profileimage">
+    
 
  <h3 class="mt-3"><span  th:text="${session.students.fullName}"></span></h3>
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">studentId</th>
+      <th scope="col" >studentId</th>
       <th scope="col">SMS10<span th:text="${session.students.rollNo}"></span></th>
      
      
@@ -42,7 +45,7 @@
     </tr>
      
      <tr>
-      <th scope="row">contact Number</th>
+      <th scope="row">Contact Number</th>
       <td><span th:text="${session.students.contactNumber}"></span></td>
    
     </tr>
@@ -65,10 +68,9 @@
   
    
   </tbody>
-</table>
- 
-  <a th:href="@{/editprofile}" type="submit" class="btn btn-primary btn-sm">Edit</a>
   
+</table>
+ </div>
 </div>
 
 </div>

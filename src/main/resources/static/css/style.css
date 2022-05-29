@@ -53,6 +53,16 @@ bg.primary{
 	padding:20px;
 	
 }
+.my-cards{
+	
+	background-color:silver;
+	box-shadow: 0 3px 10px ;
+	border-radius: 5%;
+	padding:20px;
+	border:2px solid;
+	border-color:black;
+	
+}
 .my-profileimage{
 	width:35px;
 	height:35px;
