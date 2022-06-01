@@ -195,7 +195,6 @@ public String updateStudent(@ModelAttribute Studentlogindetails studentlogindeta
 		@RequestParam("profileimage")MultipartFile file)throws Exception
 {
 	
-	 
 		if(file.isEmpty()) {
 			System.out.println("file is empty");
 			studentlogindetails.setImage("student.png");
@@ -288,7 +287,7 @@ public String viewstudents(Model model) {
 	
 	teacherservice.deleteTeacherByteacherId(teacherId);
 	session.setAttribute("message02",new Message("teacher deleted successfully","alert-success"));
-	return "redirect:/adminfolder/viewteachers";
+	return "redirect:/viewteachers";
 	 }
 	 
 //showupdateform-----updatebutton

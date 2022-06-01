@@ -143,3 +143,13 @@ bg.primary{
 	
 	
 }
+
+.footer{ 
+       position: fixed;     
+       text-align: center;    
+       bottom: 0px; 
+       width: 100%;
+   }  
+.aboutt{
+	float:left;
+}

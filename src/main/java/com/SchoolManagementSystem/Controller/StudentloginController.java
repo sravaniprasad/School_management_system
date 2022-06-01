@@ -99,13 +99,6 @@ public class StudentloginController {
 	}
 	 
 	
-	@GetMapping("/editprofile")
-	public String editstudprofile(Model model) {
-		
-		model.addAttribute("editprofile",new Studentlogindetails());
-		return "studentfolder/editprofile";
-	}
-	
 	
 
 	
@@ -170,7 +163,15 @@ public class StudentloginController {
 			
 		}
 	 
-	 
+		@GetMapping("/ContactUs")
+		public String contact(Model model) {
+			model.addAttribute("title","about-school mgmy system");
+			
+			
+			return "ContactUs";
+			
+			
+		}
 	 
 	 
 	 @GetMapping("/viewstudents/{page}")
