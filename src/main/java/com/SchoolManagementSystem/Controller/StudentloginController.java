@@ -13,7 +13,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -49,8 +50,8 @@ import com.SchoolManagementSystem.Service.MarksService;
 import com.SchoolManagementSystem.Service.StudentdetailsService;
 import com.lowagie.text.DocumentException;
 @Controller
-
-public class StudentloginController {
+@WebServlet(urlPatterns = {"/School_management_system"})
+public class StudentloginController extends HttpServlet {
 	
 	
 
