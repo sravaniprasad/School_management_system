@@ -50,8 +50,8 @@ import com.SchoolManagementSystem.Service.MarksService;
 import com.SchoolManagementSystem.Service.StudentdetailsService;
 import com.lowagie.text.DocumentException;
 @Controller
-@WebServlet(urlPatterns = {"/School_management_system"})
-public class StudentloginController extends HttpServlet {
+
+public class StudentloginController {
 	
 	
 
