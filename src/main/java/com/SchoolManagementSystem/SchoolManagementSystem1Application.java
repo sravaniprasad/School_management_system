@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 
-public class SchoolManagementSystem1Application extends SpringBootServletIntializer {
+public class SchoolManagementSystem1Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SchoolManagementSystem1Application.class, args);
